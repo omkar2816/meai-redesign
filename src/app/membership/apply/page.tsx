@@ -272,7 +272,7 @@ export default function ApplyMembershipPage() {
                 <Button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto bg-gradient-to-r from-[#403A8B] to-[#F28C1B] hover:opacity-90 text-white px-10 py-6 rounded-full text-lg font-semibold shadow-lg transition-transform active:scale-95"
+                  className="w-full sm:w-auto bg-[#403A8B] hover:bg-[#403A8B]/90 text-white px-10 py-6 rounded-full text-lg font-semibold shadow-lg transition-transform active:scale-95"
                 >
                   {isSubmitting ? "Submitting..." : "Apply Now"}
                 </Button>

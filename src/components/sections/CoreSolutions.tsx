@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Factory, Globe2, Landmark, Handshake } from "lucide-react";
+import Link from "next/link";
 
 export function CoreSolutions() {
   return (
@@ -37,9 +38,9 @@ export function CoreSolutions() {
                   Scale your operations with advanced manufacturing frameworks, technology adoption, and capacity building support tailored for modern enterprises.
                 </p>
               </div>
-              <div className="mt-8 flex items-center text-primary font-semibold group-hover:translate-x-2 transition-transform cursor-pointer w-max">
+              <Link href="/solutions/manufacturing" className="mt-8 flex items-center text-primary font-semibold group-hover:translate-x-2 transition-transform cursor-pointer w-max">
                 Explore Frameworks <ArrowRight className="ml-2 w-5 h-5" />
-              </div>
+              </Link>
             </div>
           </motion.div>
 
@@ -64,9 +65,9 @@ export function CoreSolutions() {
                   Enter new global markets with strategic insights, compliance support, and international trade networks.
                 </p>
               </div>
-              <div className="mt-8 flex items-center font-semibold group-hover:translate-x-2 transition-transform cursor-pointer w-max">
+              <Link href="/solutions/export" className="mt-8 flex items-center font-semibold group-hover:translate-x-2 transition-transform cursor-pointer w-max">
                 Go Global <ArrowRight className="ml-2 w-5 h-5" />
-              </div>
+              </Link>
             </div>
           </motion.div>
 
@@ -91,9 +92,9 @@ export function CoreSolutions() {
                   Unlock capital streams and connect with investors ready to back high-growth manufacturing ventures.
                 </p>
               </div>
-              <div className="mt-8 flex items-center text-secondary-foreground font-semibold group-hover:translate-x-2 transition-transform cursor-pointer w-max">
+              <Link href="/solutions/investments" className="mt-8 flex items-center text-secondary-foreground font-semibold group-hover:translate-x-2 transition-transform cursor-pointer w-max">
                 Access Capital <ArrowRight className="ml-2 w-5 h-5" />
-              </div>
+              </Link>
             </div>
           </motion.div>
 
@@ -117,9 +118,9 @@ export function CoreSolutions() {
                 </p>
               </div>
               <div className="flex-shrink-0">
-                <button className="flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white group-hover:bg-accent group-hover:text-white transition-colors">
+                <Link href="/solutions/partnerships" className="flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white group-hover:bg-accent group-hover:text-white transition-colors">
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
             </div>
           </motion.div>

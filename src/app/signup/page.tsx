@@ -12,31 +12,36 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-const signInSchema = z.object({
+const signUpSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
   password: z.string().min(6, "Password must be at least 6 characters"),
+  confirmPassword: z.string().min(6, "Password must be at least 6 characters"),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords do not match",
+  path: ["confirmPassword"],
 });
 
-type SignInFormData = z.infer<typeof signInSchema>;
+type SignUpFormData = z.infer<typeof signUpSchema>;
 
-export default function SignInPage() {
+export default function SignUpPage() {
   const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignInFormData>({
-    resolver: zodResolver(signInSchema),
+  } = useForm<SignUpFormData>({
+    resolver: zodResolver(signUpSchema),
   });
 
-  const onSubmit = async (data: SignInFormData) => {
+  const onSubmit = async (data: SignUpFormData) => {
     setIsLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Sign In data:", data);
+    console.log("Sign Up data:", data);
     
-    toast.success("Signed In Successfully!", {
-      description: "Welcome back to the MEAI ecosystem.",
+    toast.success("Account Created Successfully!", {
+      description: "Welcome to the MEAI ecosystem. Please sign in.",
     });
     
     setIsLoading(false);
@@ -63,14 +68,26 @@ export default function SignInPage() {
               </Link>
             </div>
             <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-2">
-              Sign In to <span className="text-[#403A8B] dark:text-[#F5C400]">MEAI</span>
+              Create an Account
             </h1>
             <p className="text-sm text-slate-600 dark:text-slate-400">
-              Enter your details below to access your dashboard.
+              Join the <span className="text-[#403A8B] dark:text-[#F5C400] font-semibold">MEAI</span> ecosystem today.
             </p>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <div className="space-y-2">
+              <Label htmlFor="name" className="text-slate-700 dark:text-slate-300">Full Name</Label>
+              <Input 
+                id="name" 
+                type="text"
+                placeholder="John Doe" 
+                className="bg-white/50 dark:bg-slate-800/50 h-12"
+                {...register("name")}
+              />
+              {errors.name && <p className="text-sm text-red-500">{errors.name.message}</p>}
+            </div>
+
             <div className="space-y-2">
               <Label htmlFor="email" className="text-slate-700 dark:text-slate-300">Email Address</Label>
               <Input 
@@ -84,12 +101,7 @@ export default function SignInPage() {
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="password" className="text-slate-700 dark:text-slate-300">Password</Label>
-                <Link href="#" className="text-sm text-[#403A8B] dark:text-[#F5C400] hover:underline font-medium">
-                  Forgot password?
-                </Link>
-              </div>
+              <Label htmlFor="password" className="text-slate-700 dark:text-slate-300">Password</Label>
               <Input 
                 id="password" 
                 type="password"
@@ -100,20 +112,32 @@ export default function SignInPage() {
               {errors.password && <p className="text-sm text-red-500">{errors.password.message}</p>}
             </div>
 
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword" className="text-slate-700 dark:text-slate-300">Confirm Password</Label>
+              <Input 
+                id="confirmPassword" 
+                type="password"
+                placeholder="••••••••" 
+                className="bg-white/50 dark:bg-slate-800/50 h-12"
+                {...register("confirmPassword")}
+              />
+              {errors.confirmPassword && <p className="text-sm text-red-500">{errors.confirmPassword.message}</p>}
+            </div>
+
             <Button 
               type="submit" 
               disabled={isLoading}
               className="w-full bg-[#403A8B] hover:bg-[#403A8B]/90 text-white h-12 rounded-xl text-lg font-semibold shadow-lg transition-transform active:scale-95"
             >
-              {isLoading ? "Signing in..." : "Sign In"}
+              {isLoading ? "Signing up..." : "Sign Up"}
             </Button>
           </form>
 
           <div className="mt-8 text-center">
             <p className="text-sm text-slate-600 dark:text-slate-400">
-              Don&apos;t have an account?{" "}
-              <Link href="/signup" className="text-[#403A8B] dark:text-[#F5C400] font-semibold hover:underline inline-flex items-center">
-                Sign Up <ArrowRight className="ml-1 w-4 h-4" />
+              Already have an account?{" "}
+              <Link href="/signin" className="text-[#403A8B] dark:text-[#F5C400] font-semibold hover:underline inline-flex items-center">
+                Sign In <ArrowRight className="ml-1 w-4 h-4" />
               </Link>
             </p>
           </div>

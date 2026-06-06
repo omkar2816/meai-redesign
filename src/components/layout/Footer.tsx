@@ -45,20 +45,21 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-6">Solutions</h3>
             <ul className="space-y-4 text-sm">
-              <li><Link href="/#export" className="hover:text-white transition-colors">Export Promotion</Link></li>
-              <li><Link href="/#manufacturing" className="hover:text-white transition-colors">Manufacturing Growth</Link></li>
-              <li><Link href="/#investments" className="hover:text-white transition-colors">Investments</Link></li>
-              <li><Link href="/#partnerships" className="hover:text-white transition-colors">Strategic Partnerships</Link></li>
+              <li><Link href="/solutions/export" className="hover:text-white transition-colors">Export Promotion</Link></li>
+              <li><Link href="/solutions/manufacturing" className="hover:text-white transition-colors">Manufacturing Growth</Link></li>
+              <li><Link href="/solutions/investments" className="hover:text-white transition-colors">Investments</Link></li>
+              <li><Link href="/solutions/partnerships" className="hover:text-white transition-colors">Strategic Partnerships</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-white font-semibold mb-6">Company</h3>
             <ul className="space-y-4 text-sm">
-              <li><Link href="/#about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/#leadership" className="hover:text-white transition-colors">Leadership</Link></li>
-              <li><Link href="/#careers" className="hover:text-white transition-colors">Careers</Link></li>
-              <li><Link href="/#contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">Leadership</Link></li>
+              <li><Link href="/events" className="hover:text-white transition-colors">Events</Link></li>
+              <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 

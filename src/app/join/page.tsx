@@ -71,10 +71,18 @@ export default function JoinPage() {
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <motion.h1
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
+              className="flex justify-center mb-6"
+            >
+              <img src="/logo/logo.png" alt="MEAI Logo" className="h-20 w-auto" />
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-4"
             >
               Join <span className="text-[#403A8B] dark:text-[#F5C400]">MEAI</span>
@@ -258,7 +266,7 @@ export default function JoinPage() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto bg-gradient-to-r from-[#403A8B] to-[#F28C1B] hover:opacity-90 text-white px-10 py-6 rounded-full text-lg font-semibold shadow-lg transition-transform active:scale-95"
+                  className="w-full sm:w-auto bg-[#403A8B] hover:bg-[#403A8B]/90 text-white px-10 py-6 rounded-full text-lg font-semibold shadow-lg transition-transform active:scale-95"
                 >
                   {isSubmitting ? "Submitting..." : "Submit Application"}
                 </Button>
