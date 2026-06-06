@@ -65,15 +65,15 @@ export function Footer() {
 
           <div>
             <h3 className="text-white font-semibold mb-6">Stay Updated</h3>
-            <p className="text-sm text-slate-400 mb-4">Subscribe to our newsletter for the latest industry insights.</p>
-            <form className="flex flex-col gap-2">
+            <p className="text-sm text-slate-400 mb-6 leading-relaxed">Subscribe to our newsletter for the latest industry insights and opportunities.</p>
+            <form className="flex flex-col gap-3">
               <input
                 type="email"
-                placeholder="Enter your email"
-                className="bg-slate-900 border border-slate-800 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary text-white"
+                placeholder="Enter your email address"
+                className="w-full h-12 bg-slate-900 border border-slate-800 rounded-xl px-5 text-base focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-white placeholder:text-slate-600 transition-all shadow-inner"
                 required
               />
-              <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white">
+              <Button type="submit" className="w-full h-12 rounded-xl bg-primary hover:bg-primary/90 text-white text-base font-semibold shadow-lg transition-transform hover:-translate-y-0.5 active:scale-[0.98]">
                 Subscribe
               </Button>
             </form>

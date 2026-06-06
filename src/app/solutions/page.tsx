@@ -199,8 +199,8 @@ export default function SolutionsPage() {
             <p className="text-xl text-slate-300 mb-10">
               Join the MEAI ecosystem today and get immediate access to our full suite of enterprise solutions, networking events, and dedicated support.
             </p>
-            <Link href="/join">
-              <Button className="bg-white hover:bg-slate-100 text-slate-900 rounded-full px-10 py-7 h-auto text-xl font-bold shadow-xl transition-transform hover:scale-105">
+            <Link href="/join" className="inline-block w-full sm:w-auto">
+              <Button className="w-full sm:w-auto bg-white hover:bg-slate-100 text-slate-900 rounded-full px-6 sm:px-10 py-4 sm:py-7 h-auto text-lg sm:text-xl font-bold shadow-xl transition-transform hover:scale-105 whitespace-normal text-center">
                 Apply for Membership
               </Button>
             </Link>

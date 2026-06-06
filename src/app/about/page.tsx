@@ -284,8 +284,8 @@ export default function AboutPage() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="-left-4 lg:-left-12 border-slate-200 dark:border-slate-800" />
-            <CarouselNext className="-right-4 lg:-right-12 border-slate-200 dark:border-slate-800" />
+            <CarouselPrevious className="w-14 h-14 [&>svg]:w-8 [&>svg]:h-8 -left-4 lg:-left-12 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors" />
+            <CarouselNext className="w-14 h-14 [&>svg]:w-8 [&>svg]:h-8 -right-4 lg:-right-12 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors" />
           </Carousel>
         </div>
       </section>
@@ -307,40 +307,50 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {advisoryBoard.map((advisor, idx) => (
-              <motion.div
-                key={advisor.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-slate-500 rounded-3xl p-6 transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="flex items-center gap-5 mb-6">
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-slate-600 group-hover:border-[#F5C400] transition-colors">
-                    <img
-                      src={advisor.image}
-                      alt={advisor.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-1">{advisor.name}</h3>
-                    <Link href={advisor.linkedin} target="_blank" className="text-slate-400 hover:text-[#0077b5] transition-colors">
-                      <LinkedinIcon className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-sm font-medium text-slate-300">{advisor.role}</div>
-                  <div className="text-xs font-semibold text-[#F5C400] bg-[#F5C400]/10 px-3 py-1 rounded-full inline-block">
-                    {advisor.expertise}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <Carousel
+            opts={{
+              align: "start",
+            }}
+            className="w-full max-w-7xl mx-auto px-12"
+          >
+            <CarouselContent className="-ml-4 md:-ml-8 py-4">
+              {advisoryBoard.map((advisor, idx) => (
+                <CarouselItem key={advisor.id} className="pl-4 md:pl-8 sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1, duration: 0.5 }}
+                    className="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-slate-500 rounded-3xl p-6 transition-all duration-300 hover:-translate-y-2 h-full"
+                  >
+                    <div className="flex items-center gap-5 mb-6">
+                      <div className="w-20 h-20 shrink-0 rounded-full overflow-hidden border-2 border-slate-600 group-hover:border-[#F5C400] transition-colors">
+                        <img
+                          src={advisor.image}
+                          alt={advisor.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-white mb-1">{advisor.name}</h3>
+                        <Link href={advisor.linkedin} target="_blank" className="text-slate-400 hover:text-[#0077b5] transition-colors">
+                          <LinkedinIcon className="w-4 h-4" />
+                        </Link>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="text-sm font-medium text-slate-300">{advisor.role}</div>
+                      <div className="text-xs font-semibold text-[#F5C400] bg-[#F5C400]/10 px-3 py-1 rounded-full inline-block">
+                        {advisor.expertise}
+                      </div>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="w-14 h-14 [&>svg]:w-8 [&>svg]:h-8 -left-4 lg:-left-12 border-slate-700 bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-500 transition-all" />
+            <CarouselNext className="w-14 h-14 [&>svg]:w-8 [&>svg]:h-8 -right-4 lg:-right-12 border-slate-700 bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-500 transition-all" />
+          </Carousel>
 
           <div className="mt-20 text-center">
             <Link href="/join">

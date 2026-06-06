@@ -14,15 +14,15 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, ChevronDown, Activity, Globe, Zap, Users, ArrowRight, Gift, List, FileText } from "lucide-react";
+import { Menu, ChevronDown, Activity, Globe, Zap, Users, ArrowRight, Gift, List, FileText, Info, Target, Award, Image, Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
 
 const aboutItems = [
-  { title: "About MEAI", href: "/about", description: "Learn about our mission and history." },
-  { title: "Vision & Mission", href: "/about#vision", description: "Our roadmap for India's growth." },
-  { title: "Leadership", href: "/about#leadership", description: "Meet the team driving our initiatives." },
-  { title: "Gallery", href: "/gallery", description: "Explore moments from our events and initiatives." },
-  { title: "Advisory Board", href: "/about#advisory", description: "Experts guiding our strategic direction." },
+  { title: "About MEAI", href: "/about", icon: Info, description: "Learn about our mission and history." },
+  { title: "Vision & Mission", href: "/about#vision", icon: Target, description: "Our roadmap for India's growth." },
+  { title: "Leadership", href: "/about#leadership", icon: Award, description: "Meet the team driving our initiatives." },
+  { title: "Gallery", href: "/gallery", icon: Image, description: "Explore moments from our events and initiatives." },
+  { title: "Advisory Board", href: "/about#advisory", icon: Lightbulb, description: "Experts guiding our strategic direction." },
 ];
 
 const solutionsItems = [
@@ -56,7 +56,7 @@ export function Navbar() {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-6">
           <NavigationMenu>
-            <NavigationMenuList>
+            <NavigationMenuList className="space-x-2 lg:space-x-4">
               <NavigationMenuItem>
                 <NavigationMenuLink render={<Link href="/" />} className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
                   Home
@@ -68,7 +68,7 @@ export function Navbar() {
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                     {aboutItems.map((item) => (
-                      <ListItem key={item.title} title={item.title} href={item.href}>
+                      <ListItem key={item.title} title={item.title} href={item.href} icon={item.icon}>
                         {item.description}
                       </ListItem>
                     ))}
@@ -152,7 +152,7 @@ export function Navbar() {
               <div className="flex items-center justify-between p-6 border-b border-slate-100 dark:border-slate-800">
                 <img src="/logo/MEAI.png" alt="MEAI India" className="h-8 w-auto" />
               </div>
-              
+
               {/* Scrollable Navigation */}
               <div className="flex-1 overflow-y-auto p-4 space-y-1">
                 <Link href="/" className="block p-4 text-lg font-bold rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" onClick={() => setIsOpen(false)}>
@@ -167,7 +167,12 @@ export function Navbar() {
                   </summary>
                   <div className="grid gap-1 px-4 pb-2">
                     {aboutItems.map((item) => (
-                      <Link key={item.title} href={item.href} className="block p-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-400 hover:text-[#403A8B] hover:bg-[#403A8B]/5 dark:hover:bg-[#F5C400]/10 dark:hover:text-[#F5C400] transition-all" onClick={() => setIsOpen(false)}>
+                      <Link key={item.title} href={item.href} className="flex items-center gap-4 p-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-400 hover:text-[#403A8B] hover:bg-[#403A8B]/5 dark:hover:bg-[#F5C400]/10 dark:hover:text-[#F5C400] transition-all" onClick={() => setIsOpen(false)}>
+                        {item.icon && (
+                          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#403A8B]/10 text-[#403A8B] dark:text-[#F5C400]">
+                            <item.icon className="w-5 h-5" />
+                          </div>
+                        )}
                         {item.title}
                       </Link>
                     ))}
