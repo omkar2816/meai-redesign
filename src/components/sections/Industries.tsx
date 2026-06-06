@@ -20,7 +20,7 @@ const industries = [
 export function Industries() {
   return (
     <section id="industries" className="py-24 bg-white dark:bg-slate-950">
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">
             Industries We Empower

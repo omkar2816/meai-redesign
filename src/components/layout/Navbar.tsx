@@ -42,7 +42,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full glass">
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-8">
+      <div className="container mx-auto flex h-20 items-center justify-between px-8 md:px-16 lg:px-24">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
             <img src="/logo/MEAI.jpg" alt="MEAI India" className="h-15 w-auto" />
@@ -54,11 +54,9 @@ export function Navbar() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link href="/" legacyBehavior passHref>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
-                    Home
-                  </NavigationMenuLink>
-                </Link>
+                <NavigationMenuLink render={<Link href="/" />} className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
+                  Home
+                </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
@@ -80,8 +78,7 @@ export function Navbar() {
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                     {solutionsItems.map((item) => (
                       <li key={item.title}>
-                        <Link href={item.href} legacyBehavior passHref>
-                          <NavigationMenuLink
+                        <NavigationMenuLink render={<Link href={item.href} />}
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
                           >
                             <div className="flex items-center gap-2">
@@ -94,7 +91,6 @@ export function Navbar() {
                               {item.description}
                             </p>
                           </NavigationMenuLink>
-                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -102,11 +98,9 @@ export function Navbar() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link href="/#industries" legacyBehavior passHref>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
-                    Industries
-                  </NavigationMenuLink>
-                </Link>
+                <NavigationMenuLink render={<Link href="/#industries" />} className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
+                  Industries
+                </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
@@ -123,11 +117,9 @@ export function Navbar() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link href="/#events" legacyBehavior passHref>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
-                    Events
-                  </NavigationMenuLink>
-                </Link>
+                <NavigationMenuLink render={<Link href="/#events" />} className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
+                  Events
+                </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -201,8 +193,7 @@ const ListItem = React.forwardRef<
 >(({ className, title, children, ...props }, ref) => {
   return (
     <li>
-      <Link href={props.href!} legacyBehavior passHref>
-        <NavigationMenuLink
+      <NavigationMenuLink render={<Link href={props.href!} />}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-slate-800 dark:focus:bg-slate-800",
             className
@@ -213,7 +204,6 @@ const ListItem = React.forwardRef<
             {children}
           </p>
         </NavigationMenuLink>
-      </Link>
     </li>
   );
 });

@@ -89,7 +89,7 @@ export function Hero() {
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-background pt-20 pb-32">
       <NetworkVisual />
       
-      <div className="container relative z-10 px-4 md:px-8 mx-auto text-center">
+      <div className="container relative z-10 px-8 md:px-16 lg:px-24 mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -36,7 +36,7 @@ const stories = [
 export function SuccessStories() {
   return (
     <section className="py-24 bg-white dark:bg-slate-950">
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">

@@ -20,7 +20,7 @@ const partners = [
 export function PartnerEcosystem() {
   return (
     <section className="py-20 bg-white dark:bg-slate-950 overflow-hidden border-y border-slate-100 dark:border-slate-900">
-      <div className="container mx-auto px-4 md:px-8 text-center mb-10">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24 text-center mb-10">
         <h3 className="text-m font-semibold tracking-wider text-slate-500 uppercase">
           Trusted by industry leaders & global organizations
         </h3>

@@ -50,7 +50,7 @@ export function ImpactMetrics() {
   return (
     <section className="py-24 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-900 relative">
       <div className="absolute inset-0 bg-grid-slate-100/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-900/[0.04]" />
-      <div className="container mx-auto px-4 md:px-8 relative">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24 relative">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
           {metrics.map((metric, idx) => (
             <motion.div 

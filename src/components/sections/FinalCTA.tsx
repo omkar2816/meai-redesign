@@ -13,7 +13,7 @@ export function FinalCTA() {
         <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-black/30 via-transparent to-transparent" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24 relative z-10 text-center">
         <div className="max-w-4xl mx-auto space-y-8">
           <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
             Ready To Expand <br className="hidden md:block" /> Beyond Borders?
