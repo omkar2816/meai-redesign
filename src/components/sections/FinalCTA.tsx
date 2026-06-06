@@ -1,5 +1,6 @@
 import { ArrowRight, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function FinalCTA() {
   return (
@@ -24,9 +25,11 @@ export function FinalCTA() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
-            <Button size="lg" className="h-14 px-8 text-base rounded-full bg-white hover:bg-slate-100 text-[#403A8B] shadow-xl w-full sm:w-auto font-bold transition-transform hover:-translate-y-1">
-              Join MEAI <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <Link href="/join" className="w-full sm:w-auto">
+              <Button size="lg" className="h-14 px-8 text-base rounded-full bg-white hover:bg-slate-100 text-[#403A8B] shadow-xl w-full font-bold transition-transform hover:-translate-y-1">
+                Join MEAI <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
             <Button size="lg" variant="outline" className="h-14 px-8 text-base rounded-full bg-transparent border-white/30 hover:bg-white/10 text-white w-full sm:w-auto font-semibold transition-colors">
               <Calendar className="mr-2 w-5 h-5" /> Schedule Consultation
             </Button>
