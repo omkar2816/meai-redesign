@@ -14,13 +14,14 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, ChevronDown, Activity, Globe, Zap, Users, ArrowRight } from "lucide-react";
+import { Menu, ChevronDown, Activity, Globe, Zap, Users, ArrowRight, Gift, List, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 
 const aboutItems = [
   { title: "About MEAI", href: "/about", description: "Learn about our mission and history." },
   { title: "Vision & Mission", href: "/about#vision", description: "Our roadmap for India's growth." },
   { title: "Leadership", href: "/about#leadership", description: "Meet the team driving our initiatives." },
+  { title: "Gallery", href: "/gallery", description: "Explore moments from our events and initiatives." },
   { title: "Advisory Board", href: "/about#advisory", description: "Experts guiding our strategic direction." },
 ];
 
@@ -32,9 +33,9 @@ const solutionsItems = [
 ];
 
 const membershipItems = [
-  { title: "Benefits", href: "/membership/benefits", description: "Why businesses join our ecosystem." },
-  { title: "Plans", href: "/membership/plans", description: "Membership tiers for your business." },
-  { title: "Apply", href: "/membership/apply", description: "Join MEAI today." },
+  { title: "Benefits", href: "/membership/benefits", icon: Gift, description: "Why businesses join our ecosystem." },
+  { title: "Plans", href: "/membership/plans", icon: List, description: "Membership tiers for your business." },
+  { title: "Apply", href: "/membership/apply", icon: FileText, description: "Join MEAI today." },
 ];
 
 export function Navbar() {
@@ -109,9 +110,9 @@ export function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-transparent">Membership</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[300px] gap-3 p-4 md:w-[400px]">
+                  <ul className="grid w-[280px] gap-3 p-4 md:w-[320px]">
                     {membershipItems.map((item) => (
-                      <ListItem key={item.title} title={item.title} href={item.href}>
+                      <ListItem key={item.title} title={item.title} href={item.href} icon={item.icon}>
                         {item.description}
                       </ListItem>
                     ))}
@@ -146,50 +147,94 @@ export function Navbar() {
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle Menu</span>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col gap-4 mt-8">
-                <Link href="/" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Home</Link>
-                <div className="space-y-3">
-                  <h4 className="font-medium text-sm text-muted-foreground uppercase tracking-wider">About</h4>
-                  <div className="grid gap-2 pl-4 border-l">
+            <SheetContent side="right" className="w-[85vw] sm:w-[400px] border-l-0 p-0 flex flex-col bg-white dark:bg-slate-950">
+              {/* Header with Logo */}
+              <div className="flex items-center justify-between p-6 border-b border-slate-100 dark:border-slate-800">
+                <img src="/logo/MEAI.png" alt="MEAI India" className="h-8 w-auto" />
+              </div>
+              
+              {/* Scrollable Navigation */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-1">
+                <Link href="/" className="block p-4 text-lg font-bold rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" onClick={() => setIsOpen(false)}>
+                  Home
+                </Link>
+
+                {/* Modern Dropdown - About */}
+                <details className="group">
+                  <summary className="flex items-center justify-between p-4 text-lg font-bold rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-900 cursor-pointer list-none [&::-webkit-details-marker]:hidden transition-colors">
+                    About
+                    <ChevronDown className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" />
+                  </summary>
+                  <div className="grid gap-1 px-4 pb-2">
                     {aboutItems.map((item) => (
-                      <Link key={item.title} href={item.href} className="text-sm" onClick={() => setIsOpen(false)}>
+                      <Link key={item.title} href={item.href} className="block p-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-400 hover:text-[#403A8B] hover:bg-[#403A8B]/5 dark:hover:bg-[#F5C400]/10 dark:hover:text-[#F5C400] transition-all" onClick={() => setIsOpen(false)}>
                         {item.title}
                       </Link>
                     ))}
                   </div>
-                </div>
-                <div className="space-y-3">
-                  <h4 className="font-medium text-sm text-muted-foreground uppercase tracking-wider">Solutions</h4>
-                  <div className="grid gap-2 pl-4 border-l">
+                </details>
+
+                {/* Modern Dropdown - Solutions */}
+                <details className="group">
+                  <summary className="flex items-center justify-between p-4 text-lg font-bold rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-900 cursor-pointer list-none [&::-webkit-details-marker]:hidden transition-colors">
+                    Solutions
+                    <ChevronDown className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" />
+                  </summary>
+                  <div className="grid gap-1 px-4 pb-2">
                     {solutionsItems.map((item) => (
-                      <Link key={item.title} href={item.href} className="text-sm" onClick={() => setIsOpen(false)}>
+                      <Link key={item.title} href={item.href} className="flex items-center gap-4 p-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-400 hover:text-[#403A8B] hover:bg-[#403A8B]/5 dark:hover:bg-[#F5C400]/10 dark:hover:text-[#F5C400] transition-all" onClick={() => setIsOpen(false)}>
+                        <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#403A8B]/10 text-[#403A8B] dark:text-[#F5C400]">
+                          <item.icon className="w-5 h-5" />
+                        </div>
                         {item.title}
                       </Link>
                     ))}
                   </div>
-                </div>
-                <Link href="/#industries" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Industries</Link>
-                <div className="space-y-3">
-                  <h4 className="font-medium text-sm text-muted-foreground uppercase tracking-wider">Membership</h4>
-                  <div className="grid gap-2 pl-4 border-l">
+                </details>
+
+                {/* Modern Dropdown - Membership */}
+                <details className="group">
+                  <summary className="flex items-center justify-between p-4 text-lg font-bold rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-900 cursor-pointer list-none [&::-webkit-details-marker]:hidden transition-colors">
+                    Membership
+                    <ChevronDown className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" />
+                  </summary>
+                  <div className="grid gap-1 px-4 pb-2">
                     {membershipItems.map((item) => (
-                      <Link key={item.title} href={item.href} className="text-sm" onClick={() => setIsOpen(false)}>
+                      <Link key={item.title} href={item.href} className="flex items-center gap-4 p-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-400 hover:text-[#403A8B] hover:bg-[#403A8B]/5 dark:hover:bg-[#F5C400]/10 dark:hover:text-[#F5C400] transition-all" onClick={() => setIsOpen(false)}>
+                        {item.icon && (
+                          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#403A8B]/10 text-[#403A8B] dark:text-[#F5C400]">
+                            <item.icon className="w-5 h-5" />
+                          </div>
+                        )}
                         {item.title}
                       </Link>
                     ))}
                   </div>
-                </div>
-                <Link href="/#events" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Events</Link>
-                <div className="mt-6 flex flex-col gap-3">
+                </details>
+
+                <Link href="/#industries" className="block p-4 text-lg font-bold rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" onClick={() => setIsOpen(false)}>
+                  Industries
+                </Link>
+                <Link href="/events" className="block p-4 text-lg font-bold rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" onClick={() => setIsOpen(false)}>
+                  Events
+                </Link>
+              </div>
+
+              {/* Footer Buttons */}
+              <div className="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20">
+                <div className="flex flex-col gap-3">
                   <Link href="/signin" onClick={() => setIsOpen(false)} className="w-full">
-                    <Button variant="outline" className="w-full">Sign In</Button>
+                    <Button variant="outline" className="w-full h-14 text-lg font-bold rounded-xl border-2 border-[#403A8B] text-[#403A8B] dark:text-[#F5C400] dark:border-[#F5C400] hover:bg-[#403A8B] hover:text-white dark:hover:bg-[#F5C400] dark:hover:text-slate-900 transition-colors">
+                      Sign In
+                    </Button>
                   </Link>
                   <Link href="/join" onClick={() => setIsOpen(false)} className="w-full">
-                    <Button className="w-full bg-primary hover:bg-primary/90">Join MEAI</Button>
+                    <Button className="w-full h-14 text-lg font-bold rounded-xl bg-[#403A8B] hover:bg-[#403A8B]/90 text-white shadow-lg transition-transform active:scale-[0.98]">
+                      Join MEAI
+                    </Button>
                   </Link>
                 </div>
-              </nav>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
@@ -200,17 +245,26 @@ export function Navbar() {
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<"a"> & { icon?: React.ElementType }
+>(({ className, title, children, icon: Icon, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink render={<Link href={props.href!} />}
         className={cn(
-          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-slate-800 dark:focus:bg-slate-800",
+          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-slate-800 dark:focus:bg-slate-800 group",
           className
         )}
       >
-        <div className="text-sm font-medium leading-none">{title}</div>
+        {Icon ? (
+          <div className="flex items-center gap-2">
+            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+              <Icon className="h-4 w-4" />
+            </div>
+            <div className="text-sm font-medium leading-none">{title}</div>
+          </div>
+        ) : (
+          <div className="text-sm font-medium leading-none">{title}</div>
+        )}
         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-2">
           {children}
         </p>
