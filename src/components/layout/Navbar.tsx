@@ -25,10 +25,10 @@ const aboutItems = [
 ];
 
 const solutionsItems = [
-  { title: "Export Promotion", href: "/#export", icon: Globe, description: "Scale globally with our export strategies." },
-  { title: "Manufacturing Growth", href: "/#manufacturing", icon: Activity, description: "Optimize operations and increase output." },
-  { title: "Investments", href: "/#investments", icon: Zap, description: "Attract funding and capital investments." },
-  { title: "Strategic Partnerships", href: "/#partnerships", icon: Users, description: "Connect with industry leaders." },
+  { title: "Export Promotion", href: "/solutions#export", icon: Globe, description: "Scale globally with our export strategies." },
+  { title: "Manufacturing Growth", href: "/solutions#manufacturing", icon: Activity, description: "Optimize operations and increase output." },
+  { title: "Investments", href: "/solutions#investments", icon: Zap, description: "Attract funding and capital investments." },
+  { title: "Strategic Partnerships", href: "/solutions#partnerships", icon: Users, description: "Connect with industry leaders." },
 ];
 
 const membershipItems = [

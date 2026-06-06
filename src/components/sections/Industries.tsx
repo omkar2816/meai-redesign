@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Wrench, Zap, Cpu, Car, Scissors, Coffee, ShoppingCart, Pill, Briefcase, Rocket } from "lucide-react";
+import { Wrench, Zap, Cpu, Car, Scissors, Coffee, ShoppingCart, Pill, Briefcase, Rocket, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 const industries = [
   { id: "manufacturing", label: "Manufacturing", icon: Wrench, description: "Advanced production systems, industry 4.0 integration, and supply chain optimization." },
@@ -19,64 +19,72 @@ const industries = [
 
 export function Industries() {
   return (
-    <section id="industries" className="py-24 bg-white dark:bg-slate-950">
-      <div className="container mx-auto px-8 md:px-16 lg:px-24">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">
-            Industries We Empower
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400">
-            Driving sector-specific growth across India's most critical economic pillars.
-          </p>
+    <section id="industries" className="py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden border-t border-slate-200 dark:border-slate-800">
+      {/* Background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[600px] bg-gradient-to-r from-[#403A8B]/10 via-[#F5C400]/10 to-[#F28C1B]/10 blur-3xl rounded-full pointer-events-none opacity-50 dark:opacity-20" />
+
+      <div className="container mx-auto px-8 md:px-16 lg:px-24 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+          <div className="max-w-2xl">
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
+              Empowering <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#403A8B] to-[#F28C1B]">Every Sector</span>
+            </h2>
+            <p className="text-lg text-slate-600 dark:text-slate-400">
+              Driving sector-specific growth across India's most critical economic pillars. Explore opportunities tailored to your industry.
+            </p>
+          </div>
+          <Link href="/join" className="group hidden md:flex items-center text-sm font-bold text-[#403A8B] dark:text-[#F5C400] hover:opacity-80 transition-opacity">
+            Join The Ecosystem
+            <div className="ml-2 w-8 h-8 rounded-full bg-[#403A8B]/10 dark:bg-[#F5C400]/10 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+              <ArrowUpRight className="w-4 h-4" />
+            </div>
+          </Link>
         </div>
 
-        <Tabs defaultValue="manufacturing" className="w-full">
-          <div className="flex justify-center mb-12">
-            <TabsList className="flex flex-wrap h-auto justify-center gap-2 bg-transparent p-0">
-              {industries.map((ind) => (
-                <TabsTrigger 
-                  key={ind.id} 
-                  value={ind.id}
-                  className="data-[state=active]:bg-primary data-[state=active]:text-white rounded-full px-6 py-3 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all data-[state=active]:shadow-md border border-transparent data-[state=active]:border-primary/20"
-                >
-                  <ind.icon className="w-4 h-4 mr-2" />
-                  {ind.label}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          {industries.map((ind, idx) => (
+            <motion.div
+              key={ind.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.05, duration: 0.5 }}
+            >
+              <div className="group h-full bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-[#403A8B]/30 dark:hover:border-[#F5C400]/30 hover:shadow-2xl hover:shadow-[#403A8B]/5 transition-all duration-300 relative overflow-hidden flex flex-col">
 
-          {industries.map((ind) => (
-            <TabsContent key={ind.id} value={ind.id} className="mt-0 focus-visible:outline-none focus-visible:ring-0">
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="max-w-4xl mx-auto"
-              >
-                <div className="relative overflow-hidden rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-12 text-center shadow-inner">
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] dark:opacity-[0.05] pointer-events-none">
-                    <ind.icon className="w-96 h-96" />
+                {/* Hover gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#403A8B]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[#403A8B] dark:group-hover:bg-[#F5C400] transition-all duration-300">
+                    <ind.icon className="w-6 h-6 text-[#403A8B] dark:text-[#F5C400] group-hover:text-white dark:group-hover:text-slate-900 transition-colors" />
                   </div>
-                  
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-20 h-20 rounded-2xl bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center mb-8 border border-slate-100 dark:border-slate-700">
-                      <ind.icon className="w-10 h-10 text-primary" />
-                    </div>
-                    <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">{ind.label}</h3>
-                    <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-                      {ind.description}
-                    </p>
-                    
-                    <button className="mt-10 px-8 py-3 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-medium hover:bg-primary dark:hover:bg-primary transition-colors">
-                      View {ind.label} Opportunities
-                    </button>
-                  </div>
+
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-[#403A8B] dark:group-hover:text-[#F5C400] transition-colors">
+                    {ind.label}
+                  </h3>
+
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6 flex-grow">
+                    {ind.description}
+                  </p>
                 </div>
-              </motion.div>
-            </TabsContent>
+
+                <div className="mt-auto relative z-10 flex items-center text-sm font-semibold text-[#403A8B] dark:text-[#F5C400] opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  Explore <ArrowUpRight className="ml-1 w-4 h-4" />
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </Tabs>
+        </div>
+
+        <div className="mt-12 md:hidden flex justify-center">
+          <Link href="/join" className="group flex items-center text-sm font-bold text-[#403A8B] dark:text-[#F5C400] hover:opacity-80 transition-opacity">
+            Join The Ecosystem
+            <div className="ml-2 w-8 h-8 rounded-full bg-[#403A8B]/10 dark:bg-[#F5C400]/10 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+              <ArrowUpRight className="w-4 h-4" />
+            </div>
+          </Link>
+        </div>
       </div>
     </section>
   );

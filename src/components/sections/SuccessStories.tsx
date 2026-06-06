@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, TrendingUp, Globe2, Factory } from "lucide-react";
+import Link from "next/link";
 
 const stories = [
   {
@@ -46,9 +47,9 @@ export function SuccessStories() {
               Real business outcomes driven by the MEAI ecosystem. We measure success in revenue, funding, and global expansion.
             </p>
           </div>
-          <button className="flex items-center text-primary font-semibold hover:text-primary/80 transition-colors">
+          <Link href="/case-studies" className="flex items-center text-primary font-semibold hover:text-primary/80 transition-colors">
             View All Case Studies <ArrowUpRight className="ml-1 w-5 h-5" />
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -59,26 +60,26 @@ export function SuccessStories() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="group relative overflow-hidden rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 hover:shadow-xl transition-all duration-300"
+              className="group relative overflow-hidden rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 hover:shadow-xl transition-all duration-300"
             >
-              <div className="flex justify-between items-start mb-12">
+              <div className="flex justify-between items-start mb-8">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">{story.company}</h3>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">{story.company}</h3>
                   <p className="text-sm text-slate-500 font-medium">{story.industry}</p>
                 </div>
-                <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${story.gradient} flex items-center justify-center text-white shadow-lg`}>
-                  <story.icon className="w-5 h-5" />
+                <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${story.gradient} flex items-center justify-center text-white shadow-lg`}>
+                  <story.icon className="w-4 h-4" />
                 </div>
               </div>
               
-              <div className="space-y-2">
-                <div className={`text-6xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-br ${story.gradient}`}>
+              <div className="space-y-1">
+                <div className={`text-5xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-br ${story.gradient}`}>
                   {story.metric}
                 </div>
-                <p className="text-lg font-semibold text-slate-900 dark:text-white">
+                <p className="text-base font-semibold text-slate-900 dark:text-white">
                   {story.metricLabel}
                 </p>
-                <p className="text-sm text-slate-500">
+                <p className="text-xs text-slate-500">
                   {story.duration}
                 </p>
               </div>
