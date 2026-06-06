@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
           <div className="lg:col-span-2 space-y-6">
             <Link href="/" className="flex items-center gap-2">
-              <img src="/logo/logo.png" alt="MEAI India" className="h-10 w-auto" />
+              <img src="/logo/logo.png" alt="MEAI India" className="h-15 w-auto" />
             </Link>
             <p className="text-slate-400 max-w-sm text-sm leading-relaxed">
               India&apos;s leading Manufacturing & Export Growth Ecosystem helping businesses scale operations, enter global markets, and unlock strategic opportunities.
@@ -66,9 +66,9 @@ export function Footer() {
             <h3 className="text-white font-semibold mb-6">Stay Updated</h3>
             <p className="text-sm text-slate-400 mb-4">Subscribe to our newsletter for the latest industry insights.</p>
             <form className="flex flex-col gap-2">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
+              <input
+                type="email"
+                placeholder="Enter your email"
                 className="bg-slate-900 border border-slate-800 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary text-white"
                 required
               />

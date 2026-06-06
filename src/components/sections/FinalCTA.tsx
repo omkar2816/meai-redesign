@@ -6,7 +6,7 @@ export function FinalCTA() {
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Background with brand gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#403A8B] via-[#403A8B] to-[#F28C1B] z-0" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#403A8B] via-indigo-600 to-[#F28C1B] z-0" />
       
       {/* Abstract background elements */}
       <div className="absolute inset-0 z-0 opacity-20">
@@ -30,9 +30,6 @@ export function FinalCTA() {
                 Join MEAI <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="h-14 px-8 text-base rounded-full bg-transparent border-white/30 hover:bg-white/10 text-white w-full sm:w-auto font-semibold transition-colors">
-              <Calendar className="mr-2 w-5 h-5" /> Schedule Consultation
-            </Button>
           </div>
         </div>
       </div>

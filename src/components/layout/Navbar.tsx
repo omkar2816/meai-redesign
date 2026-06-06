@@ -18,10 +18,10 @@ import { Menu, ChevronDown, Activity, Globe, Zap, Users, ArrowRight } from "luci
 import { motion } from "framer-motion";
 
 const aboutItems = [
-  { title: "About MEAI", href: "/#about", description: "Learn about our mission and history." },
-  { title: "Vision & Mission", href: "/#vision", description: "Our roadmap for India's growth." },
-  { title: "Leadership", href: "/#leadership", description: "Meet the team driving our initiatives." },
-  { title: "Advisory Board", href: "/#advisory", description: "Experts guiding our strategic direction." },
+  { title: "About MEAI", href: "/about", description: "Learn about our mission and history." },
+  { title: "Vision & Mission", href: "/about#vision", description: "Our roadmap for India's growth." },
+  { title: "Leadership", href: "/about#leadership", description: "Meet the team driving our initiatives." },
+  { title: "Advisory Board", href: "/about#advisory", description: "Experts guiding our strategic direction." },
 ];
 
 const solutionsItems = [
@@ -32,9 +32,9 @@ const solutionsItems = [
 ];
 
 const membershipItems = [
-  { title: "Benefits", href: "/#benefits", description: "Why businesses join our ecosystem." },
-  { title: "Plans", href: "/#plans", description: "Membership tiers for your business." },
-  { title: "Apply", href: "/#apply", description: "Join MEAI today." },
+  { title: "Benefits", href: "/membership/benefits", description: "Why businesses join our ecosystem." },
+  { title: "Plans", href: "/membership/plans", description: "Membership tiers for your business." },
+  { title: "Apply", href: "/membership/apply", description: "Join MEAI today." },
 ];
 
 export function Navbar() {
@@ -48,7 +48,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-2 absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/logo/MEAI.jpg" alt="MEAI India" className="h-15 w-auto" />
+            <img src="/logo/MEAI.png" alt="MEAI India" className="h-15 w-auto" />
           </Link>
         </div>
 
@@ -82,18 +82,18 @@ export function Navbar() {
                     {solutionsItems.map((item) => (
                       <li key={item.title}>
                         <NavigationMenuLink render={<Link href={item.href} />}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-slate-800 dark:focus:bg-slate-800 group"
-                          >
-                            <div className="flex items-center gap-2">
-                              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                <item.icon className="h-4 w-4" />
-                              </div>
-                              <div className="text-sm font-medium leading-none">{item.title}</div>
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-slate-800 dark:focus:bg-slate-800 group"
+                        >
+                          <div className="flex items-center gap-2">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                              <item.icon className="h-4 w-4" />
                             </div>
-                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-2">
-                              {item.description}
-                            </p>
-                          </NavigationMenuLink>
+                            <div className="text-sm font-medium leading-none">{item.title}</div>
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-2">
+                            {item.description}
+                          </p>
+                        </NavigationMenuLink>
                       </li>
                     ))}
                   </ul>
@@ -129,7 +129,9 @@ export function Navbar() {
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
-          <Button variant="ghost" className="font-semibold">Sign In</Button>
+          <Link href="/signin">
+            <Button variant="ghost" className="font-semibold">Sign In</Button>
+          </Link>
           <Link href="/join">
             <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
               Join MEAI <ArrowRight className="ml-2 h-4 w-4" />
@@ -180,7 +182,9 @@ export function Navbar() {
                 </div>
                 <Link href="/#events" className="text-lg font-medium" onClick={() => setIsOpen(false)}>Events</Link>
                 <div className="mt-6 flex flex-col gap-3">
-                  <Button variant="outline" className="w-full">Sign In</Button>
+                  <Link href="/signin" onClick={() => setIsOpen(false)} className="w-full">
+                    <Button variant="outline" className="w-full">Sign In</Button>
+                  </Link>
                   <Link href="/join" onClick={() => setIsOpen(false)} className="w-full">
                     <Button className="w-full bg-primary hover:bg-primary/90">Join MEAI</Button>
                   </Link>
@@ -201,16 +205,16 @@ const ListItem = React.forwardRef<
   return (
     <li>
       <NavigationMenuLink render={<Link href={props.href!} />}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-slate-800 dark:focus:bg-slate-800",
-            className
-          )}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-2">
-            {children}
-          </p>
-        </NavigationMenuLink>
+        className={cn(
+          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-slate-800 dark:focus:bg-slate-800",
+          className
+        )}
+      >
+        <div className="text-sm font-medium leading-none">{title}</div>
+        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-2">
+          {children}
+        </p>
+      </NavigationMenuLink>
     </li>
   );
 });

@@ -112,12 +112,16 @@ export function Hero() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
-            <Button size="lg" className="h-14 px-8 text-base rounded-full bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/25 transition-all hover:-translate-y-1 w-full sm:w-auto">
-              Become A Member <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="h-14 px-8 text-base rounded-full bg-white/50 backdrop-blur-sm border-slate-200 hover:bg-slate-50 text-slate-900 transition-all w-full sm:w-auto dark:bg-slate-900/50 dark:border-slate-800 dark:text-slate-100 dark:hover:bg-slate-800">
-              Explore Opportunities
-            </Button>
+            <Link href="/membership/apply" className="w-full sm:w-auto">
+              <Button size="lg" className="h-14 px-8 text-base rounded-full bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/25 transition-all hover:-translate-y-1 w-full">
+                Become A Member <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="/#events" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="h-14 px-8 text-base rounded-full bg-white/50 backdrop-blur-sm border-slate-200 hover:bg-slate-50 text-slate-900 transition-all w-full dark:bg-slate-900/50 dark:border-slate-800 dark:text-slate-100 dark:hover:bg-slate-800">
+                Explore Opportunities
+              </Button>
+            </Link>
           </div>
         </motion.div>
       </div>

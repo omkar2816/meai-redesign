@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const events = [
   {
@@ -41,9 +42,11 @@ export function Events() {
               Connect with industry leaders, investors, and policymakers at our exclusive summits and workshops.
             </p>
           </div>
-          <Button variant="outline" className="rounded-full px-6">
-            View All Events
-          </Button>
+          <Link href="/events">
+            <Button variant="outline" className="rounded-full px-6">
+              View All Events
+            </Button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
