@@ -4,17 +4,26 @@ import { Button } from "@/components/ui/button";
 
 export function Footer() {
   return (
-    <footer className="bg-slate-950 text-slate-300 py-16 border-t border-slate-900">
+    <footer className="bg-slate-950 text-slate-300 py-10 border-t border-slate-900">
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
-          <div className="lg:col-span-2 space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
+          <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <img src="/logo/logo.png" alt="MEAI India" className="h-15 w-auto" />
+              <img src="/logo/logo.png" alt="MEAI India" className="h-12 w-auto" />
             </Link>
             <p className="text-slate-400 max-w-sm text-sm leading-relaxed">
               India&apos;s leading Manufacturing & Export Growth Ecosystem helping businesses scale operations, enter global markets, and unlock strategic opportunities.
             </p>
-            <div className="flex items-center gap-4 pt-2">
+            <div className="text-sm text-slate-400 leading-relaxed">
+              <h3>Office:</h3>
+              <p>Samruddhi Venture Park, Office No. 1, 3rd Floor, </p>
+              <p>SEEPZ - MIDC Central Road, Next to Akruti Centre,</p>
+              <p>Andheri (E) Mumbai - 400 093</p>
+            </div>
+            <div className="text-sm text-slate-400 leading-relaxed">
+              <h3>Phone:</h3> <span>+91 98765 43210</span>
+            </div>
+            <div className="flex items-center gap-3 pt-1">
               <a href="#" className="h-10 w-10 flex items-center justify-center rounded-full bg-slate-900 hover:bg-primary transition-colors text-slate-400 hover:text-white">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
@@ -43,8 +52,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-6">Solutions</h3>
-            <ul className="space-y-4 text-sm">
+            <h3 className="text-white font-semibold mb-4">Solutions</h3>
+            <ul className="space-y-2.5 text-sm">
               <li><Link href="/solutions/export" className="hover:text-white transition-colors">Export Promotion</Link></li>
               <li><Link href="/solutions/manufacturing" className="hover:text-white transition-colors">Manufacturing Growth</Link></li>
               <li><Link href="/solutions/investments" className="hover:text-white transition-colors">Investments</Link></li>
@@ -53,8 +62,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-6">Company</h3>
-            <ul className="space-y-4 text-sm">
+            <h3 className="text-white font-semibold mb-4">Company</h3>
+            <ul className="space-y-2.5 text-sm">
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors">Leadership</Link></li>
               <li><Link href="/events" className="hover:text-white transition-colors">Events</Link></li>
@@ -63,24 +72,46 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-white font-semibold mb-6">Stay Updated</h3>
-            <p className="text-sm text-slate-400 mb-6 leading-relaxed">Subscribe to our newsletter for the latest industry insights and opportunities.</p>
-            <form className="flex flex-col gap-3">
+          <div className="lg:col-span-1 flex flex-col h-full">
+            <h3 className="text-white font-semibold mb-4">Contact Us</h3>
+            <form className="flex flex-col gap-2 mb-3">
               <input
-                type="email"
-                placeholder="Enter your email address"
-                className="w-full h-12 bg-slate-900 border border-slate-800 rounded-xl px-5 text-base focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-white placeholder:text-slate-600 transition-all shadow-inner"
+                type="text"
+                placeholder="Name"
+                className="w-full h-9 bg-slate-900 border border-slate-800 rounded-lg px-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-white placeholder:text-slate-600 transition-all shadow-inner"
                 required
               />
-              <Button type="submit" className="w-full h-12 rounded-xl bg-primary hover:bg-primary/90 text-white text-base font-semibold shadow-lg transition-transform hover:-translate-y-0.5 active:scale-[0.98]">
-                Subscribe
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full h-9 bg-slate-900 border border-slate-800 rounded-lg px-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-white placeholder:text-slate-600 transition-all shadow-inner"
+                required
+              />
+              <textarea
+                placeholder="Message"
+                rows={1}
+                className="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-white placeholder:text-slate-600 transition-all shadow-inner resize-none"
+                required
+              />
+              <Button type="submit" className="w-full h-9 rounded-lg bg-primary hover:bg-primary/90 text-white text-sm font-semibold shadow-lg transition-transform hover:-translate-y-0.5 active:scale-[0.98]">
+                Send
               </Button>
             </form>
+            <div className="w-full flex-1 min-h-[80px] rounded-lg overflow-hidden border border-slate-800">
+              <iframe
+                src="https://maps.google.com/maps?q=SME+Chamber+of+India,+Mumbai&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-slate-900 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+        <div className="border-t border-slate-900 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} Manufacturers & Exporters Association of India. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
