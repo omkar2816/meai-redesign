@@ -134,7 +134,7 @@ export function Navbar() {
             <Button variant="ghost" className="font-semibold">Sign In</Button>
           </Link>
           <Link href="/join">
-            <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
+            <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 py-5 shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
               Join MEAI <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>

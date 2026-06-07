@@ -1,93 +1,142 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, TrendingUp, Globe2, Factory } from "lucide-react";
-import Link from "next/link";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-const stories = [
+const impacts = [
   {
-    company: "TechFab India",
-    industry: "Manufacturing",
-    metric: "+300%",
-    metricLabel: "Export Volume Growth",
-    duration: "in 18 months",
-    icon: Globe2,
-    gradient: "from-blue-500 to-indigo-500",
+    num: "01",
+    title: "Manufacturing Growth",
+    subtitle: "Supporting industrial expansion and manufacturing excellence.",
+    content: "India's manufacturing sector contributes approximately 17% of the country's GDP, making it one of the key drivers of economic growth. MEAI works towards strengthening manufacturing capabilities through industry collaboration, business networking, and growth-oriented initiatives.",
+    stats: [
+      { value: "17%", label: "of India's GDP" },
+      { value: "77%", label: "of Industrial Output" }
+    ]
   },
   {
-    company: "AeroParts Global",
-    industry: "Engineering",
-    metric: "$50M",
-    metricLabel: "FDI Secured",
-    duration: "Series B Funding",
-    icon: TrendingUp,
-    gradient: "from-emerald-400 to-emerald-600",
+    num: "02",
+    title: "Export Opportunities",
+    subtitle: "Opening pathways to global markets and international trade.",
+    content: "India exported goods worth over $430 Billion in recent years, highlighting the growing demand for Indian products worldwide. MEAI promotes export readiness, market access, and international business connections for manufacturers and exporters.",
+    stats: [
+      { value: "$430B+", label: "Export Economy" },
+      { value: "1.8%", label: "of Global Merchandise Exports" }
+    ]
   },
   {
-    company: "Nova Electronics",
-    industry: "Electronics",
-    metric: "45",
-    metricLabel: "New Global Markets",
-    duration: "Market Expansion",
-    icon: Factory,
-    gradient: "from-orange-400 to-orange-600",
+    num: "03",
+    title: "Strategic Partnerships",
+    subtitle: "Building stronger business connections for long-term growth.",
+    content: "Strategic collaborations, joint ventures, and industry partnerships help businesses accelerate growth, enter new markets, and access new capabilities. MEAI encourages meaningful industry-to-industry connections that create lasting value.",
+    stats: [
+      { value: "30%", label: "of India's GDP" },
+      { value: "45%+", label: "of National Exports" }
+    ]
   },
+  {
+    num: "04",
+    title: "Investment Facilitation",
+    subtitle: "Connecting businesses with opportunities for expansion.",
+    content: "India continues to attract billions of dollars in investment across manufacturing, infrastructure, technology, and industrial development. MEAI supports businesses in exploring investment opportunities and growth-oriented collaborations.",
+    stats: [
+      { value: "$100B+", label: "Annual FDI Inflows" },
+      { value: "Fastest", label: "Growing Major Economy" }
+    ]
+  },
+  {
+    num: "05",
+    title: "SME & Startup Empowerment",
+    subtitle: "Supporting the backbone of India's economy.",
+    content: "MSMEs account for over 30% of India's GDP and play a critical role in employment generation and industrial development. MEAI supports SMEs and startups through networking, partnerships, and business development opportunities.",
+    stats: [
+      { value: "63M+", label: "MSMEs Nationwide" },
+      { value: "6.5 Crore", label: "Registered Enterprises" }
+    ]
+  },
+  {
+    num: "06",
+    title: "Industry Development",
+    subtitle: "Strengthening industrial ecosystems through collaboration.",
+    content: "Sustainable industrial growth requires cooperation between businesses, investors, policymakers, and industry leaders. MEAI works towards fostering stronger industry engagement and development initiatives across sectors.",
+    stats: [
+      { value: "28 Crore", label: "Jobs Supported" },
+      { value: "45%", label: "of Mfg Output Driven by MSMEs" }
+    ]
+  }
 ];
 
 export function SuccessStories() {
   return (
-    <section className="py-24 bg-white dark:bg-slate-950">
+    <section className="py-24 bg-slate-50 dark:bg-slate-900/50">
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">
-              Proven Impact
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400">
-              Real business outcomes driven by the MEAI ecosystem. We measure success in revenue, funding, and global expansion.
-            </p>
-          </div>
-          <Link href="/case-studies" className="flex items-center text-primary font-semibold hover:text-primary/80 transition-colors">
-            View All Case Studies <ArrowUpRight className="ml-1 w-5 h-5" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {stories.map((story, idx) => (
+        <div className="flex flex-col lg:flex-row gap-16 items-start">
+          <div className="lg:w-1/3 lg:sticky lg:top-32">
             <motion.div
-              key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="group relative overflow-hidden rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 hover:shadow-xl transition-all duration-300"
+              transition={{ duration: 0.5 }}
             >
-              <div className="flex justify-between items-start mb-8">
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">{story.company}</h3>
-                  <p className="text-sm text-slate-500 font-medium">{story.industry}</p>
-                </div>
-                <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${story.gradient} flex items-center justify-center text-white shadow-lg`}>
-                  <story.icon className="w-4 h-4" />
-                </div>
-              </div>
-              
-              <div className="space-y-1">
-                <div className={`text-5xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-br ${story.gradient}`}>
-                  {story.metric}
-                </div>
-                <p className="text-base font-semibold text-slate-900 dark:text-white">
-                  {story.metricLabel}
-                </p>
-                <p className="text-xs text-slate-500">
-                  {story.duration}
-                </p>
-              </div>
-
-              {/* Decorative background element */}
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br from-transparent to-slate-200 dark:to-slate-800 rounded-full blur-2xl opacity-50 group-hover:opacity-100 transition-opacity" />
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">
+                Creating Impact Across Industries
+              </h2>
+              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                Driving manufacturing growth, export opportunities, strategic partnerships, and business expansion through a connected industry ecosystem.
+              </p>
             </motion.div>
-          ))}
+          </div>
+
+          <div className="lg:w-2/3 w-full">
+            <Accordion className="w-full flex flex-col gap-4">
+              {impacts.map((item, idx) => (
+                <motion.div
+                  key={item.num}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1, duration: 0.5 }}
+                >
+                  <AccordionItem
+                    value={`item-${idx}`}
+                    className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-2xl px-6 py-2 shadow-sm hover:shadow-md transition-all data-[state=open]:border-primary/50 data-[state=open]:shadow-md data-[state=open]:bg-primary/5 dark:data-[state=open]:bg-primary/10 !border-b-slate-200 dark:!border-b-slate-800"
+                  >
+                    <AccordionTrigger className="hover:no-underline py-4 text-left group items-center [&_[data-slot=accordion-trigger-icon]]:!size-5 data-[state=open]:text-primary">
+                      <div className="flex items-start sm:items-center gap-6">
+                        <span className="text-3xl md:text-4xl font-light text-slate-300 dark:text-slate-700 group-hover:text-primary group-data-[state=open]:text-primary transition-colors">
+                          {item.num}
+                        </span>
+                        <div className="flex flex-col items-start gap-1 pr-6">
+                          <span className="text-xl font-semibold text-slate-900 dark:text-white group-hover:text-primary group-data-[state=open]:text-primary transition-colors">
+                            {item.title}
+                          </span>
+                          <span className="text-sm font-normal text-slate-500 dark:text-slate-400">
+                            {item.subtitle}
+                          </span>
+                        </div>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-slate-600 dark:text-slate-300 sm:pl-[4.5rem] pr-4 pb-6 pt-2 leading-relaxed text-base">
+                      <p className="mb-6">{item.content}</p>
+                      <div className="grid grid-cols-2 gap-4">
+                        {item.stats.map((stat, i) => (
+                          <div key={i} className="bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 rounded-xl p-4 flex flex-col justify-center transition-all hover:shadow-md hover:border-primary/30 group/stat">
+                            <span className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-indigo-500 group-hover/stat:scale-105 origin-left transition-transform mb-1">{stat.value}</span>
+                            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold uppercase tracking-wider">{stat.label}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </div>
     </section>
